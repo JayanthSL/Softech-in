@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>JAYANTH UI</title>
+  <title>Softech</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -492,7 +492,14 @@
 
 
             </p>
-            <img src="assets/img/cmgsoon.jpeg" alt="coming soon" width="1000" height="450" style="padding-left: 250px;">
+            <img src="assets/img/cmgsoon.jpeg" alt="coming soon" style="max-width: 100%; height: auto; ">
+
+            <style>
+            @media (max-width: 768px) {
+              
+            }
+            </style>
+            
 
           </div>
         </div>
@@ -548,10 +555,10 @@
         function sendMail() {
             Email.send({
                 Host : "smtp.elasticemail.com",
-                Username : "madhavapreethi25@outlook.com",
-                Password : "EE327B2180A3F04D232F28634ED09BAD2A2E",
-                To : document.getElementById("email").value,
-                From :  "Madhavapreethi25@outlook.com",
+                Username : "softech.bengaluru@outlook.com",
+                Password : "19B5D95DF2E0D31F1B8EEB0C3CA6F6CBA7CD",
+                To : document.getElementById("email1").value,
+                From :  "softech.bengaluru@outlook.com",
                 Subject : "New Contact Form Enquiry",
                 Body : "Name: " + document.getElementById("name").value
                         + "<br> Email: " + document.getElementById("email").value
