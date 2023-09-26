@@ -525,55 +525,52 @@
       </div>
 
       </div>
-
-      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-        <form onsubmit="sendMail(); reset(); return false;">
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="name">Your Name</label>
-              <input type="text" name="name" class="form-control" id="name" required>
+        </div>
+  
+        </div>
+  
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form  id="contact_form" onsubmit="sendMail(); reset(); return false;">
+            <div class="row">
+              <div class="col">
+                <input type="text" id="name" class="form-input w-100" name="name" placeholder="Full Name" required>
+              </div>
+              <div class="col">
+                <input type="email" id="email" class="form-input w-100" name="email" placeholder="email" required>
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label for="email">Your Email</label>
-              <input type="email" class="form-control" name="email" id="email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="name">Phone No.</label>
-            <input type="text" class="form-control" name="phone" id="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Message</label>
-            <textarea class="form-control" id="message" rows="10" required></textarea>
-          </div>
+            <input type="number" id="phone" class="form-input w-100" name="phone" placeholder="phone">
+            <textarea class="form-input w-100" id="message" placeholder="Message" name="message"></textarea>
+            <button class="btn-grad w-100 text-uppercase" type="submit" name="button">submit</button>
+          </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script>
+          function sendMail() {
+              Email.send({
+                  Host : "smtp.elasticemail.com",
+                  Username : "softech.bengaluru@outlook.com",
+                  Password : "C0126F40A0802E4449B0C1FE59E774A8AE23",
+                  To : "softech.bengaluru@outlook.com",
+                  From :  "softech.bengaluru@outlook.com",
+                  Subject : "New Contact Form Enquiry",
+                  Body : "Name: " + document.getElementById("name").value
+                          + "<br> Email: " + document.getElementById("email").value
+                          + "<br> Phone No.: " + document.getElementById("phone").value
+                          + "<br> Message: " + document.getElementById("message").value
+              }).then(
+              message => alert("Message Sent Successfully")
+              );
+          }
+      </script>
+  
+        </div>
+  
+        </div>
+      </section>
+      
 
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
-      </div>
-      <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendMail() {
-            Email.send({
-                Host : "smtp.elasticemail.com",
-                Username : "softech.bengaluru@outlook.com",
-                Password : "C0126F40A0802E4449B0C1FE59E774A8AE23",
-                To : "softech.bengaluru@outlook.com",
-                From :  "softech.bengaluru@outlook.com",
-                Subject : "New Contact Form Enquiry",
-                Body : "Name: " + document.getElementById("name").value
-                        + "<br> Email: " + document.getElementById("email").value
-                        + "<br> Phone No.: " + document.getElementById("phone").value
-                        + "<br> Message: " + document.getElementById("message").value
-            }).then(
-            message => alert("Message Sent Successfully")
-            );
-        }
-    </script>
-
-      </div>
-
-      </div>
-    </section>
+      
 
   </main>
   <footer id="footer">
