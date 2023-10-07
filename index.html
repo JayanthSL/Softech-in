@@ -659,9 +659,7 @@
                     <div class="btn-box">
                       <a  id="viewAllButton">View All</a>
                     </div>
-                    <!-- <div class="btn-box">
-                      <a  id="viewLessButton">View Less</a>
-                    </div> -->
+                    
                     </div>
                   </div>
                 </div>
@@ -672,38 +670,45 @@
       </div>
     </div>
   </section>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-           
-            document.getElementById("service-section-1").style.display = "none";
-            document.getElementById("service-section-2").style.display = "none";
-            document.getElementById("service-section-3").style.display = "none";
-        
-           
-            document.getElementById("viewAllButton").addEventListener("click", function () {
-              
-              document.getElementById("service-section-1").style.display = "block";
-              document.getElementById("service-section-2").style.display = "block";
-              document.getElementById("service-section-3").style.display = "block";
-            });
-          });
-        </script>
-        <!-- <script>
-          document.addEventListener("DOMContentLoaded", function () {
-           
-            document.getElementById("service-section-1").style.display = "block";
-            document.getElementById("service-section-2").style.display = "block";
-            document.getElementById("service-section-3").style.display = "block";
-        
-           
-            document.getElementById("viewLessButton").addEventListener("click", function () {
-              
-              document.getElementById("service-section-1").style.display = "none";
-              document.getElementById("service-section-2").style.display = "none";
-              document.getElementById("service-section-3").style.display = "none";
-            });
-          });
-        </script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const serviceSections = [
+        document.getElementById("service-section-1"),
+        document.getElementById("service-section-2"),
+        document.getElementById("service-section-3")
+      ];
+  
+      
+      serviceSections[0].style.display = "none";
+      serviceSections[1].style.display = "none";
+      serviceSections[2].style.display = "none";
+  
+      const viewAllButton = document.getElementById("viewAllButton");
+      const viewLessButton = document.createElement("a");
+      viewLessButton.textContent = "View Less";
+      viewLessButton.style.display = "none";
+      viewAllButton.insertAdjacentElement("afterend", viewLessButton);
+  
+      viewAllButton.addEventListener("click", function () {
+        serviceSections.forEach(section => {
+          section.style.display = "block";
+        });
+        viewAllButton.style.display = "none";
+        viewLessButton.style.display = "block";
+      });
+  
+      viewLessButton.addEventListener("click", function () {
+        serviceSections.forEach(section => {
+          section.style.display = "none";
+        });
+        viewAllButton.style.display = "block";
+        viewLessButton.style.display = "none";
+      });
+    });
+  </script>
+  
+  
+
         
 
 
