@@ -111,6 +111,26 @@
 </head>
 
 <body>
+  <!-- Spinner Start -->
+      <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <img src="assets/img/soft.jpeg" alt="Your Image Alt Text" class="rotate-image">
+  </div> -->
+  <!-- Spinner End -->
+  <script>
+     
+      function hideSpinner() {
+        setTimeout(function () {
+          var spinner = document.getElementById("spinner");
+          spinner.classList.remove("show");
+        }, 1000); 
+      }
+  
+      // Call the function when the document is ready
+      document.addEventListener("DOMContentLoaded", hideSpinner);
+    </script>
 
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -163,7 +183,7 @@
     </div>
   </section>
 
-  <main id="main">
+  <!-- <main id="main"> -->
 
 
     
@@ -741,8 +761,8 @@
 
 
 
-
-  <footer id="footer">
+<!-- 
+  <footer id="footer"> -->
     <div class="container mx-auto">
 
       <div class="credits">
