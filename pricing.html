@@ -113,6 +113,54 @@ margin-top: -55px;
   margin-top: 60px;
 }
 
+.popup-msg{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s , top 0.4s;
+}
+
+.open-popup-msg{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.popup-msg img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0 , 0 , 0 , 0.2);
+}
+
+.popup-msg h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup-msg button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0 , 0 , 0 , 0.2);
+}
+
 
     </style>
  
@@ -472,8 +520,14 @@ margin-top: -55px;
                         <!-- <label for="psw"><b>Password</b></label> -->
                         <input type="text" placeholder="Enter Message" name="text" id="form-message">
   
-                        <button type="submit" class="btn">Request A Quote</button>
-                     
+                        <button type="submit" class="btn" onclick="openPopupMsg()">Request A Quote</button>
+                        
+                        <div class="popup-msg" id="popup-msg">
+                          <img src="tick.png">
+                          <h2>Thank You!</h2>
+                          <p>Your Details have been successfully submitted. Thanks!</p>
+                          <button type="button" onclick="closePopupMsg()">Ok</button>
+                      </div>
                       </form>
                     </div>
                     <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -549,6 +603,18 @@ margin-top: -55px;
                       
                     });
                     </script>
+
+<script>
+  let popup = document.getElementById("popup-msg");
+
+  function openPopupMsg(){
+      popup.classList.add("open-popup-msg");
+  }
+
+  function closePopupMsg(){
+      popup.classList.remove("open-popup-msg");
+  }
+</script>
 
 
               </div>
