@@ -145,15 +145,17 @@ a {
 
 .plan-text1,
 .plan2-text1 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  font-family: "Geneve";
 
 }
 
 .plan-text2,
 .plan2-text2 {
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-family: "Roboto";
 }
 .plan-text1,
 .plan2-text1 {
@@ -180,12 +182,14 @@ a {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.025rem;
+  font-family: "Geneve";
 }
 
 .plan-middle ul,
 .plan2-middle ul {
   display: flex;
   flex-direction: column;
+  font-family: "Verdena";
 }
 
 
