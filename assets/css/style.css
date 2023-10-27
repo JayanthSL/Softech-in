@@ -5,12 +5,12 @@ body {
 }
 
 a {
-  color: #149ddd;
+  color: #007bff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #37b3ed;
+  color: black;
   text-decoration: none;
 }
 
@@ -659,10 +659,11 @@ section {
   justify-content: center;
   width: 54px;
   height: 54px;
-  background: #149ddd;
+  /* background: #149ddd; */
+  background-color: #007bff;
   border-radius: 50%;
   transition: 0.5s;
-  border: 1px solid #149ddd;
+
 }
 
 .services .icon i {
@@ -1121,7 +1122,7 @@ input {
 	color: #fff;
 	border-radius: 2rem;
 	border: 0;
-  background: #149ddd;
+  background: #007bff;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1137,8 +1138,8 @@ input {
 .contact-info {
 	padding: 2rem 2rem 1rem;
 	border-radius: 8px;
-	background:  #149ddd;
-	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+
+
 }
 .contact-item {
 	margin:23px 0px;
