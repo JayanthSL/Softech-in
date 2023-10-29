@@ -174,7 +174,7 @@ margin-top: -55px;
  
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -354,7 +354,6 @@ margin-top: -55px;
     >
    
 
-<!-- HTML -->
 
       <h5 class="fw-bold text-primary text-uppercase" >Pricing Plan</h5>
       
@@ -373,11 +372,11 @@ margin-top: -55px;
     <section id="pricing" class="pricing">
       <div class="container">
     
-        <div class="section-title">
+
           <div class="swiper-slide">
             
     
-              <!-- <h2>Pricing</h2> -->
+
     
               <section class="section">
                 <div class="plan1-container">
@@ -505,69 +504,72 @@ margin-top: -55px;
                   </div>
                   <a class="button-65" role="button" onclick="openForm()" style="color: white;">ORDER NOW</a>
                     <div class="form-popup" id="myForm">
-                      <form class="form-container">
-                        <!-- <h1>Login</h1> -->
-                        <!-- <label for="name"><b>User Name</b></label> -->
+                      <form class="form-container" id="form-con">
 
+                        <iconify-icon icon="iconoir:cancel" onclick="cancelForm()"></iconify-icon>
+                        <i class="fa-solid fa-xmark" style="color: #3a93e6;"></i>
                         <input type="text" placeholder="Your Name" name="name" id="formname" required oninput="checkInputs()">
-  
-                        <!-- <label for="email"><b></b></label> -->
                         <input type="text" placeholder="Your Phone Number" name="number" id="form-number">
-  
-                        <!-- <label for="email"><b>Email</b></label> -->
                         <input type="text" placeholder="Enter Email" name="email" id="formemail" required oninput="checkInputs()">
-  
-                        <!-- <label for="psw"><b>Password</b></label> -->
                         <input type="text" placeholder="Enter Message" name="text" id="form-message">
-  
                         <button type="submit" class="btn" onclick="openPopupMsg()" id="requestQuoteBtn" disabled>Request A Quote</button>
-                        
-                        <div class="popup-msg" id="popup-msg">
-                          <img src="tick.png">
-                          <h2>Thank You!</h2>
-                          <p>Your Details have been successfully submitted. Thanks!</p>
-                          <button type="button" onclick="closePopupMsg()">Ok</button>
-                      </div>
-                      </form>
+                        </form>
+                      <div class="popup-msg" id="popup-msg">
+                        <img src="tick.png">
+                        <h2>Thank You!</h2>
+                        <p>Your Details have been successfully submitted. Thanks!</p>
+                        <button type="button" onclick="closePopupMsg()">Ok</button>
+                    </div>
                     </div>
                   
 
   
-  <script>
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
-    }
-  
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
-  
-    function checkInputs() {
-      const nameInput = document.getElementById("formname");
-      const emailInput = document.getElementById("formemail");
-      const requestQuoteBtn = document.getElementById("requestQuoteBtn");
-  
-      if (nameInput.value.trim() !== "" && emailInput.value.trim() !== "") {
-        requestQuoteBtn.disabled = false;
-      } else {
-        requestQuoteBtn.disabled = true;
-      }
-    }
-  
-    $(function () {
-      // contact form animations
-      $('#contact').click(function () {
-        $('#myForm').fadeToggle();
-      });
-      $(document).mouseup(function (e) {
-        var container = $("#contactForm");
-  
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
-    });
-  </script>
+                    <script>
+                      function cancelForm() {
+                        document.getElementById("form-con").style.display = "none";
+
+
+                    }
+                      function openForm() {
+                        document.getElementById("myForm").style.display = "block";
+                      }
+                    
+                      function closeForm() {
+                        document.getElementById("myForm").style.display = "none";
+                      }
+                    
+                      function checkInputs() {
+                        const nameInput = document.getElementById("formname");
+                        const emailInput = document.getElementById("formemail");
+                        const requestQuoteBtn = document.getElementById("requestQuoteBtn");
+                    
+                        if (nameInput.value.trim() !== "" && emailInput.value.trim() !== "") {
+                          requestQuoteBtn.disabled = false;
+                        } else {
+                          requestQuoteBtn.disabled = true;
+                        }
+                      }
+                    
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const form = document.querySelector(".form-container");
+                    
+                        form.addEventListener("submit", function (e) {
+                          e.preventDefault(); // Prevent the default form submission behavior
+                    
+
+                          const nameInput = document.getElementById("formname");
+                          const emailInput = document.getElementById("formemail");
+                    
+                          if (nameInput.value.trim() === "" || emailInput.value.trim() === "") {
+                            alert("Name and Email are required fields.");
+                            return;
+                          }
+                    
+                          openPopupMsg();
+                        });
+                      });
+                    </script>
+                    
 
 <script>
   let popup = document.getElementById("popup-msg");
@@ -584,44 +586,7 @@ margin-top: -55px;
 
               </div>
             </section>
-      <!-- <div class="section-title"> -->
-<!-- <script>
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const serviceSections = [
-      document.getElementById("service-section-1"),
-      document.getElementById("service-section-2"),
-      document.getElementById("service-section-3")
-    ];
-
-    
-    serviceSections[0].style.display = "none";
-    serviceSections[1].style.display = "none";
-    serviceSections[2].style.display = "none";
-
-    const viewAllButton = document.getElementById("viewAllButton");
-    const viewLessButton = document.createElement("a");
-    viewLessButton.textContent = "View Less";
-    viewLessButton.style.display = "none";
-    viewAllButton.insertAdjacentElement("afterend", viewLessButton);
-
-    viewAllButton.addEventListener("click", function () {
-      serviceSections.forEach(section => {
-        section.style.display = "block";
-      });
-      viewAllButton.style.display = "none";
-      viewLessButton.style.display = "block";
-    });
-
-    viewLessButton.addEventListener("click", function () {
-      serviceSections.forEach(section => {
-        section.style.display = "none";
-      });
-      viewAllButton.style.display = "block";
-      viewLessButton.style.display = "none";
-    });
-  });
-</script> -->
+      
   </div>
   
   </section>
