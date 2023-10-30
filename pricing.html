@@ -505,7 +505,8 @@ margin-top: -55px;
                   </div>
                   <a class="button-65" role="button" onclick="openForm()" style="color: white;">ORDER NOW</a>
                     <div class="form-popup" id="myForm">
-                      <form class="form-container" id="form-con">
+
+                      <form class="form-container" onsubmit="sendMail(),ClientEmail()" id="form-con">
 
                         <iconify-icon icon="iconoir:cancel" onclick="cancelForm()"></iconify-icon>
                         <i class="fa-solid fa-xmark" style="color: #3a93e6;"></i>
@@ -515,12 +516,64 @@ margin-top: -55px;
                         <input type="text" placeholder="Enter Message" name="text" id="form-message">
                         <button type="submit" class="btn" onclick="openPopupMsg()" id="requestQuoteBtn" disabled>Request A Quote</button>
                         </form>
+                        
+                        <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendMail() {
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "softech.bengaluru@outlook.com",
+                Password : "C0126F40A0802E4449B0C1FE59E774A8AE23",
+                To : "gowdaj159@gmail.com",
+                From :  "softech.bengaluru@outlook.com",
+                Subject : "New Contact Form Enquiry",
+                Body : 
+                         "Form Name: " + document.getElementById("formname").value
+                        + "<br> Email: " + document.getElementById("formemail").value
+                        + "<br> Form Phone No.: " + document.getElementById("form-number").value
+                        + "<br> Form Message: " + document.getElementById("form-message").value
+            }).then(
+            message => alert("Message Sent Successfully")
+            );
+console.log("print senttttt")
+
+        }
+        
+      </script>
+    <script>
+
+      function ClientEmail() {
+
+        
+        const pdfLink = "https://publuu.com/flip-book/284498/663871/page/1?embed"; 
+        const emailContent = 
+
+        `<p>Helloo</p>
+        <p>PDF Attachment: <a href="${pdfLink}">Download PDF</a></p>`;
+          Email.send({
+              Host : "smtp.elasticemail.com",
+              Username : "softech.bengaluru@outlook.com",
+              Password : "C0126F40A0802E4449B0C1FE59E774A8AE23",
+              To :document.getElementById("formemail").value,
+              From :  "softech.bengaluru@outlook.com",
+              Subject : "New Contact Form Enquiry",
+              Body: emailContent,
+
+          }).then(
+          message => alert("Message Sent Successfully")
+          );
+console.log("print senttttt")
+
+      }
+      
+  </script>
                       <div class="popup-msg" id="popup-msg">
                         <img src="tick.png">
                         <h2>Thank You!</h2>
                         <p>Your Details have been successfully submitted. Thanks!</p>
                         <button type="button" onclick="closePopupMsg()">Ok</button>
                     </div>
+
                     </div>
                   
 
