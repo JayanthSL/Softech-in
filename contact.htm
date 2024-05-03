@@ -402,7 +402,7 @@ style="max-width: 600px"
 <!-- Page Header End -->
     <!-- About Start -->
     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" id="abcd">
-        <form  id="contact_form" onsubmit="sendMail(); reset(); return false;">
+        <form  id="contact_form" onsubmit="sendMail();">
           <div class="row">
             <div class="col">
                <input type="text" id="name" class="form-input w-100" name="name" placeholder="Full Name" required>
@@ -422,21 +422,22 @@ style="max-width: 600px"
             Email.send({
                 Host : "smtp.elasticemail.com",
                 Username : "softech.bengaluru@outlook.com",
-                Password : "C0126F40A0802E4449B0C1FE59E774A8AE23",
+                Password : "AD51E6265413A9155BE3E7BDCC2C02EDAA36",
                 To : "softech.bengaluru@outlook.com",
                 From :  "softech.bengaluru@outlook.com",
                 Subject : "New Contact Form Enquiry",
                 Body : "Name: " + document.getElementById("name").value
-                        + "<br> Form Name: " + document.getElementById("form-name").value
-                        + "<br> Email: " + document.getElementById("email").value
-                        + "<br> Form Email: " + document.getElementById("form-email").value
+
+                + "<br> Mail.: " + document.getElementById("email").value
+
                         + "<br> Phone No.: " + document.getElementById("phone").value
-                        + "<br> Form Phone No.: " + document.getElementById("form-number").value
+
                         + "<br> Message: " + document.getElementById("message").value
-                        + "<br> Form Message: " + document.getElementById("form-message").value
+
             }).then(
             message => alert("Message Sent Successfully")
             );
+            console.log("nooobbbbbbbbbbbbbbbbbb")
         }
         
     </script>
